@@ -1,9 +1,18 @@
-    <?php require_once('vendor/autoload.php');
+<?php require_once('vendor/autoload.php');
 
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 
 use Facebook\WebDriver\WebDriverBy;
+
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
+
+$username = getenv('JOE_MORNING_USERNAME');
+echo "username: $username" . PHP_EOL;
+
+$password = getenv('JOE_MORNING_PASSWORD');
+echo "password: $password" . PHP_EOL;
 
 $host = 'http://localhost:4444/wd/hub';
 $capabilities = DesiredCapabilities::chrome();
