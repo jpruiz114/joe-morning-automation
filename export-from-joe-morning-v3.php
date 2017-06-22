@@ -35,12 +35,12 @@ $modal = waitUntilElementAvailable(
 $username = waitUntilElementAvailable(
     $driver, WebDriverBy::cssSelector("div.form-group input[type='text'][name='email']")
 );
-$username ->sendKeys('username');
+$username ->sendKeys($username);
 
 $password = waitUntilElementAvailable(
     $driver, WebDriverBy::cssSelector("div.form-group input[type='password'][name='password']")
 );
-$password ->sendKeys('password');
+$password ->sendKeys($password);
 
 $loginButton = waitUntilElementAvailable(
     $driver, WebDriverBy::cssSelector("div.modal-footer button[type='button'].btn.btn-primary.btn-confirm")
