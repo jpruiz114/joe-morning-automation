@@ -32,15 +32,15 @@ $modal = waitUntilElementAvailable(
     $driver, WebDriverBy::id('mdlConfirm')
 );
 
-$username = waitUntilElementAvailable(
+$usernameField = waitUntilElementAvailable(
     $driver, WebDriverBy::cssSelector("div.form-group input[type='text'][name='email']")
 );
-$username ->sendKeys($username);
+$usernameField->sendKeys($username);
 
-$password = waitUntilElementAvailable(
+$passwordField = waitUntilElementAvailable(
     $driver, WebDriverBy::cssSelector("div.form-group input[type='password'][name='password']")
 );
-$password ->sendKeys($password);
+$passwordField->sendKeys($password);
 
 $loginButton = waitUntilElementAvailable(
     $driver, WebDriverBy::cssSelector("div.modal-footer button[type='button'].btn.btn-primary.btn-confirm")
