@@ -1,6 +1,7 @@
 {
     "require": {
         "facebook/webdriver": "^1.4",
-        "vlucas/phpdotenv": "^2.4"
+        "vlucas/phpdotenv": "^2.4",
+        "phpunit/phpunit": "4.8"
     }
 }

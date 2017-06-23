@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
+
+# running
 php export-from-joe-morning-v4.php startPage=0 finalPage=1199
+
+# running
 php export-from-joe-morning-v4.php startPage=1200 finalPage=2399
+
+# running
 php export-from-joe-morning-v4.php startPage=2400 finalPage=3599
+
+# running
 php export-from-joe-morning-v4.php startPage=3600 finalPage=4000
+
 php export-from-joe-morning-v4.php startPage=4001 finalPage=4799
 php export-from-joe-morning-v4.php startPage=4800 finalPage=5999
 php export-from-joe-morning-v4.php startPage=6000 finalPage=7199
