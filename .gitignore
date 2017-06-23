@@ -4,3 +4,4 @@
 /export/*.csv
 /export/old/*.csv
 /logs/*.log
+composer.lock
