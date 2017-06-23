@@ -100,7 +100,9 @@ $totalPages = intval($lastPageButton->getText());
 echo "totalPages: $totalPages" . PHP_EOL;
 
 $currentTimestamp = microtime(true);
+
 $filename = "export/$currentTimestamp.csv";
+echo "filename: $filename" . PHP_EOL;
 
 $fileInstance = fopen($filename, "a");
 

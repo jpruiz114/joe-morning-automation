@@ -2,3 +2,4 @@
 .env
 /vendor
 /export/*.csv
+/export/old/*.csv
