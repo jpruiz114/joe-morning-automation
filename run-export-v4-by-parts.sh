@@ -1,27 +1,11 @@
 #!/usr/bin/env bash
 
-# running / part01
 php export-from-joe-morning-v4.php startPage=0 finalPage=1199
-
-# running / part02
 php export-from-joe-morning-v4.php startPage=1200 finalPage=2399
-
-# running / part03
 php export-from-joe-morning-v4.php startPage=2400 finalPage=3599
-
-# running / browser stack logs
-php export-from-joe-morning-v4.php startPage=3600 finalPage=4000
-
-# running / part05 / php export-from-joe-morning-v4.php startPage=4001 finalPage=4799 > logs\2017.06.23-part05.log
-php export-from-joe-morning-v4.php startPage=4001 finalPage=4799
-
-# running / part06
+php export-from-joe-morning-v4.php startPage=3600 finalPage=4799
 php export-from-joe-morning-v4.php startPage=4800 finalPage=5999
-
-# running / browser stack logs
-php export-from-joe-morning-v4.php startPage=6000 finalPage=6500
-
-php export-from-joe-morning-v4.php startPage=6501 finalPage=7199
+php export-from-joe-morning-v4.php startPage=6000 finalPage=7199
 php export-from-joe-morning-v4.php startPage=7200 finalPage=8399
 php export-from-joe-morning-v4.php startPage=8400 finalPage=9599
 php export-from-joe-morning-v4.php startPage=9600 finalPage=10799

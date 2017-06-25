@@ -2,7 +2,6 @@
 
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
-use Facebook\WebDriver\Remote\WebDriverCapabilityType;
 
 use Facebook\WebDriver\WebDriverBy;
 
@@ -10,8 +9,8 @@ use Facebook\WebDriver\WebDriverBy;
  * This version runs on top of Chrome with Selenium
  */
 
-$dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
+$dotEnv = new Dotenv\Dotenv(__DIR__);
+$dotEnv->load();
 
 $username = getenv('JOE_MORNING_USERNAME');
 echo "username: $username" . PHP_EOL;
@@ -21,6 +20,8 @@ echo "password: $password" . PHP_EOL;
 
 $startPage = null;
 $finalPage = null;
+
+$seleniumPort = null;
 
 foreach ($argv as $arg) {
     echo "arg: $arg" . PHP_EOL;
@@ -39,15 +40,25 @@ foreach ($argv as $arg) {
         if ($part1 === 'finalPage') {
             $finalPage = $part2;
         }
+
+        if ($part1 === 'seleniumPort') {
+            $seleniumPort = $part2;
+        }
     }
 }
 
 echo "startPage: $startPage" . PHP_EOL;
 echo "finalPage: $finalPage" . PHP_EOL;
 
+if (empty($seleniumPort)) {
+    $seleniumPort = 4444;
+}
+
+echo "seleniumPort: $seleniumPort" . PHP_EOL;
+
 //
 
-$host = 'http://localhost:4444/wd/hub';
+$host = 'http://localhost:' . $seleniumPort . '/wd/hub';
 $capabilities = DesiredCapabilities::chrome();
 $driver = RemoteWebDriver::create($host, $capabilities, 5000);
 
@@ -83,6 +94,8 @@ $loginButton = waitUntilElementAvailable(
 $loginButton->click();
 
 sleep(3);
+
+// Go to page 1
 
 $url = "https://www.joemorning.com/admin/jobs/missingActualTitle?processing=1&sortcolumn=Date%20Added&sortorder=DESC&status=1&mappedtitle=&dateadded=&page=1";
 
@@ -120,6 +133,14 @@ if (isset($startPage) && isset($finalPage)) {
 
 echo "a: $a" . PHP_EOL;
 echo "b: $b" . PHP_EOL;
+
+// Go to the chosen page
+
+$url = "https://www.joemorning.com/admin/jobs/missingActualTitle?processing=1&sortcolumn=Date%20Added&sortorder=DESC&status=1&mappedtitle=&dateadded=&page=$a";
+
+$driver->get($url);
+
+sleep(3);
 
 for ($a; $a<$b; $a++) {
     processTable($driver, $fileInstance);

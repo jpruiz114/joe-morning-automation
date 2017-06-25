@@ -6,6 +6,10 @@ use Facebook\WebDriver\Remote\WebDriverCapabilityType;
 
 use Facebook\WebDriver\WebDriverBy;
 
+/**
+ * This version runs on top of BrowserStack
+ */
+
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 
