@@ -4,4 +4,5 @@
 /export/*.csv
 /export/old/*.csv
 /logs/*.log
+/logs/errors/
 composer.lock
