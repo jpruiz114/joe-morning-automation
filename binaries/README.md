@@ -19,3 +19,5 @@ java -Xmx1024m -Dwebdriver.chrome.driver=chromedriver.exe -jar selenium-server-s
 java -Xmx1024m -Dwebdriver.chrome.driver=chromedriver.exe -jar selenium-server-standalone-3.3.1.jar -role node -hub http://localhost:4444/grid/register -port 5555
 
 java -Xmx1024m -Dwebdriver.chrome.driver=chromedriver.exe -jar selenium-server-standalone-3.3.1.jar -role node -hub http://localhost:4444/grid/register -port 6666
+
+java -Xmx1024m -Dwebdriver.chrome.driver=chromedriver.exe -jar selenium-server-standalone-3.3.1.jar -role node -hub http://localhost:4444/grid/register -port 7777

@@ -159,7 +159,7 @@ function waitUntilElementAvailable($driver, $element)
     $notFound = true;
 
     $currentAttempt = 1;
-    $maxAttempts = 10;
+    $maxAttempts = 30;
 
     $elementToFind = null;
 
@@ -196,7 +196,7 @@ function waitUntilElementsAvailable($driver, $elements)
     $notFound = true;
 
     $currentAttempt = 1;
-    $maxAttempts = 10;
+    $maxAttempts = 30;
 
     $elementsToFind = null;
 
