@@ -120,6 +120,11 @@ if (isset($startPage) && isset($finalPage)) {
 echo "a: $a" . PHP_EOL;
 echo "b: $b" . PHP_EOL;
 
+// Go to the chosen page
+$url = "https://www.joemorning.com/admin/jobs/missingActualTitle?processing=1&sortcolumn=Date%20Added&sortorder=DESC&status=1&mappedtitle=&dateadded=&page=$a";
+$driver->get($url);
+sleep(3);
+
 for ($a; $a<$b; $a++) {
     processTable($driver, $fileInstance);
 
