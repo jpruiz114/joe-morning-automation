@@ -1,8 +1,6 @@
 <?php require_once('vendor/autoload.php');
 
-use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
-use Facebook\WebDriver\Remote\WebDriverCapabilityType;
 
 use Facebook\WebDriver\WebDriverBy;
 
@@ -10,8 +8,8 @@ use Facebook\WebDriver\WebDriverBy;
  * This version runs on top of BrowserStack
  */
 
-$dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
+$dotEnv = new Dotenv\Dotenv(__DIR__);
+$dotEnv->load();
 
 $username = getenv('JOE_MORNING_USERNAME');
 echo "username: $username" . PHP_EOL;
