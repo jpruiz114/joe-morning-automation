@@ -107,8 +107,8 @@ sleep(3);
 
 // "button.btn.btn-xs.btn-primary"
 
-$buttonsList = $driver->findElements(
-    WebDriverBy::cssSelector("button.btn.btn-xs.btn-primary")
+$buttonsList = waitUntilElementsAvailable(
+    $driver, WebDriverBy::cssSelector("button.btn.btn-xs.btn-primary")
 );
 
 $lastPageButton = $buttonsList[sizeof($buttonsList) - 1];
@@ -184,6 +184,43 @@ function waitUntilElementAvailable($driver, $element)
     }
 
     return $elementToFind;
+}
+
+/**
+ * @param $driver
+ * @param $elements
+ * @return null
+ */
+function waitUntilElementsAvailable($driver, $elements)
+{
+    $notFound = true;
+
+    $currentAttempt = 1;
+    $maxAttempts = 10;
+
+    $elementsToFind = null;
+
+    while ($notFound) {
+        if ($currentAttempt > $maxAttempts) {
+            break;
+        }
+
+        try {
+            $elementsToFind = $driver->findElements($elements);
+        } catch (Exception $e) {
+
+        }
+
+        if (!empty($elementsToFind)) {
+            $notFound = false;
+        } else {
+            $currentAttempt++;
+        }
+
+        sleep(1);
+    }
+
+    return $elementsToFind;
 }
 
 /**
